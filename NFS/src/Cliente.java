@@ -9,23 +9,29 @@ public class Cliente {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println("== Cliente ==");
+        System.out.println("---------------");
+        System.out.println("=== CLIENTE ===");
+        System.out.println("---------------");
 
 
-        Socket socket = new Socket("10.0.4.65", 7000);
+        //Socket socket = new Socket("10.0.4.65", 7000);
+        Socket socket = new Socket("192.168.3.10",7000);
 
         DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
         DataInputStream dis = new DataInputStream(socket.getInputStream());
 
+        System.out.println(dis.readUTF());
 
         while (true) {
             Scanner teclado = new Scanner(System.in);
 
+            System.out.print("> ");
             dos.writeUTF(teclado.nextLine());
 
             String mensagem = dis.readUTF();
-            System.out.println("Servidor falou: " + mensagem);
+            System.out.println("Servidor falou: ");
+            System.out.println(mensagem);
         }
     }
 }
