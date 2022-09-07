@@ -2,7 +2,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.nio.file.*;
 import java.util.Scanner;
 
 public class Cliente {
@@ -15,7 +14,7 @@ public class Cliente {
 
 
         //Socket socket = new Socket("10.0.4.65", 7000);
-        Socket socket = new Socket("192.168.3.10",7000);
+        Socket socket = new Socket("localhost",7000);
 
         DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
